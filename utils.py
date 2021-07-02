@@ -1,6 +1,6 @@
 import pickle
 
-from playGround.MusicScaleLocator.config import NOTES
+from config import NOTES
 
 
 def pickle_data(data, output_file_path: str):
