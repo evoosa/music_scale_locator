@@ -1,24 +1,25 @@
 from typing import List
 
-# matara
-# choose the notes you like
-# choose the scales that have them all
-# show them to me
+from config import SCALES_TO_INTERVALS, NOTES
 
-# functions
-# generate all scales
-    # in parallel pls
-    # create a map with types of scales, and their intervals
-    # for each note, create al the scale satarting with him
-    # save them to a pickle file - create a seperate script
+OCTAVE = 12
 
-# find scales given a set of notes
-# dont forget - uniq the input notes, no dupes!
-# handle sutuation in which it's the same benefit top search two notes, ????
 
 def get_scales():
     """ Get all the scales """
+    # for i in range(OCTAVE):
+
     pass
+
+
+def get_scale(tonic: int, scale_intervals: list):
+    """ Get the scale's notes given his tonic and it's intervals """
+    scale_notes = [tonic]
+    current_note = tonic
+    for interval in scale_intervals:
+        current_note = (current_note + interval) % OCTAVE
+        scale_notes.append(current_note)
+    return scale_notes
 
 
 def get_scales_containing_note(scales_list: List, note_id: int):
@@ -34,3 +35,9 @@ def get_sorted_scales():
 def pickle_sorted_scales():
     """ Pickle the sorted data structure of the scales """
     pass
+
+
+if __name__ == '__main__':
+    scale = get_scale(0, SCALES_TO_INTERVALS[2][1])
+    print(scale)
+    print([NOTES[i] for i in scale])
