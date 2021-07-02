@@ -4,7 +4,7 @@ from config import NOTES
 
 
 def pickle_data(data, output_file_path: str):
-    """ Pickle the sorted data structure of the scales """
+    """ Pickle the data structure """
     with open(output_file_path, 'wb') as handle:
         pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
     pass
