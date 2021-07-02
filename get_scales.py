@@ -1,9 +1,10 @@
-import pickle
-from typing import List
+import os
 
 from config import SCALES_TO_INTERVALS, NOTES
+from utils import pickle_data, get_scale_notes_names
 
 OCTAVE = 12
+SCALES_MAP_FILE = 'scales_map.pickle'
 
 
 def get_scales():
@@ -19,6 +20,7 @@ def get_scales():
     print(f'Total of {len(scales)} scales')
     return scales
 
+
 def get_scale(tonic: int, scale_intervals: list):
     """ Get the scale's notes given his tonic and it's intervals """
     scale_notes = [tonic]
@@ -29,30 +31,15 @@ def get_scale(tonic: int, scale_intervals: list):
     return scale_notes
 
 
-def get_scales_containing_note(scales_list: List, note_id: int):
-    """ Given a list of scales, get all scales containing a note """
-    pass
-
-
-def get_sorted_scales():
-    """ Sort The scales in an efficient way for searching """
-    pass
-
-
-def pickle_data(data, output_file_path: str):
-    """ Pickle the sorted data structure of the scales """
-    with open(output_file_path, 'wb') as handle:
-        pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
-    pass
-
-
-def get_scale_notes_names(scale_notes: list):
-    """ Get the scale's notes names """
-    return [NOTES[i] for i in scale_notes]
+def main():
+    """ Create Scales DB """
+    if not os.path.exists(SCALES_MAP_FILE):
+        scales = get_scales()
+        pickle_data(scales, SCALES_MAP_FILE)
+        print('created scales map file successfully')
+    else:
+        print('Scales map file exists, continuing')
 
 
 if __name__ == '__main__':
-    # scale = get_scale(0, SCALES_TO_INTERVALS[1][1])
-    # print(scale)
-    # print([NOTES[i] for i in scale])
-    get_scales()
+    main()
