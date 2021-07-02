@@ -1,13 +1,17 @@
+import os
 import pickle
 
 from config import NOTES
 
 
-def pickle_data(data, pickle_file_path: str):
+def pickle_data_if_missing(data, pickle_file_path: str):
     """ Pickle the data structure """
-    with open(pickle_file_path, 'wb') as handle:
-        pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
-    pass
+    if not os.path.exists(pickle_file_path):
+        with open(pickle_file_path, 'wb') as handle:
+            pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
+        print(f'created {pickle_file_path} successfully')
+    else:
+        print('Scales map file exists, continuing')
 
 
 def load_pickle_data(pickle_file_path: str):
