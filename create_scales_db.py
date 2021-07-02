@@ -4,6 +4,7 @@ from config import SCALES_TO_INTERVALS, NOTES, OCTAVE
 from utils import pickle_data_if_missing, load_pickle_data
 
 SCALES_DB_FILE = 'scales_db.pickle'
+scales_db = {}
 
 
 def get_all_scales():
@@ -55,8 +56,8 @@ def create_scales_db(ancestor_notes: list, scales_map: dict, notes):
                 create_scales_db(next_iter_ancestor_notes, scales_with_note, next_iter_notes)
 
 
-def main():
-    """ Sort the scales in an efficient way for searching, save it to a file """
+def create_and_load_db():
+    """ Sort the scales in an efficient way for searching, save it to a file, and load it """
     if not os.path.exists(SCALES_DB_FILE):
         scales_map = get_all_scales()
         create_scales_db([], scales_map, list(range(OCTAVE)))
@@ -66,7 +67,11 @@ def main():
         return load_pickle_data(SCALES_DB_FILE)
 
 
-if __name__ == '__main__':
-    scales_db = {}
-    main()
+def get_scales_for_notes_from_db(notes: list):
+    """ Get the scales for the given notes from the DB """
+    scales_db = create_and_load_db()
+    notes.sort()
+    key = repr(notes)
 
+if __name__ == '__main__':
+    create_and_load_db()
