@@ -1,5 +1,6 @@
 import os
 import pickle
+import random
 
 from config import NOTES
 
@@ -24,3 +25,9 @@ def load_pickle_data(pickle_file_path: str):
 def get_scale_notes_names(scale_notes: list):
     """ Get the scale's notes names """
     return [NOTES[i] for i in scale_notes]
+
+
+def get_random_unicode_music_char():
+    # music_symbols_range = (0x1D120, 0x1D142)
+    music_symbols = [0x1F3B5, 0x1F3B6, 0x1F3BC,0x1F3B9, 0x1F3BB, 0x1F3B7, 0x1F3B8, 0x1F3BA, 0x1F941, 0x1F399, 0x1F3A4, 0x1F3A7, 0x1F4FB]
+    return chr(random.choice(music_symbols))
