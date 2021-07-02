@@ -1,3 +1,5 @@
+OCTAVE = 12
+
 NOTES = [
     'C',
     'C#/Db',

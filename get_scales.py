@@ -1,9 +1,8 @@
 import os
 
-from config import SCALES_TO_INTERVALS, NOTES
-from utils import pickle_data, get_scale_notes_names
+from config import SCALES_TO_INTERVALS, NOTES, OCTAVE
+from utils import pickle_data, get_scale_notes_names, load_pickle_data
 
-OCTAVE = 12
 SCALES_MAP_FILE = 'scales_map.pickle'
 
 
@@ -31,7 +30,7 @@ def get_scale(tonic: int, scale_intervals: list):
     return scale_notes
 
 
-def main():
+def get_scales_map():
     """ Create Scales DB """
     if not os.path.exists(SCALES_MAP_FILE):
         scales = get_scales()
@@ -39,7 +38,9 @@ def main():
         print('created scales map file successfully')
     else:
         print('Scales map file exists, continuing')
+        scales = load_pickle_data(SCALES_MAP_FILE)
+    return scales
 
 
 if __name__ == '__main__':
-    main()
+    get_scales_map()
