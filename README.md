@@ -1,6 +1,6 @@
 # MusicScaleLocator
 
-Locates all scales containing of a set of notes of the user's choice
+Locates all scales containing a set of notes of the user's choice
 - [ !!! ] If you find any bugs please comment them! :)
 
 # Backend
