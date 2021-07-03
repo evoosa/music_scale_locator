@@ -67,7 +67,7 @@ def create_and_load_db():
         return load_pickle_data(SCALES_DB_FILE)
 
 
-def get_scales_for_notes_from_db(notes: list):
+def get_scales_for_notes_from_db(notes: list) -> list:
     """ Get the scales for the given notes from the DB """
     scales_db = create_and_load_db()
     notes = list(set(notes))
@@ -77,7 +77,7 @@ def get_scales_for_notes_from_db(notes: list):
         scales = scales_db[key]
     except Exception as e:
         print (f'ERROR: {e}')
-        return 'Error Sorry :<'
+        return []
     return scales
 
 
