@@ -2,7 +2,7 @@ import sys
 import tkinter as tk
 
 sys.path.append('..')
-from config import NOTES, OCTAVE, LIGHT_GRAPEFRUIT, LIGHT_GRAPEFRUIT_2, LIGHT_GRAPEFRUIT_3, FONT_TUPLE, BROWN
+from config import NOTES, OCTAVE, LIGHT_GRAPEFRUIT, LIGHT_GRAPEFRUIT_2, LIGHT_GRAPEFRUIT_3, FONT_TUPLE_TITLE, BROWN
 from utils import get_random_unicode_music_char
 from create_scales_db import get_scales_for_notes_from_db
 from scales_display_window import ScalesDisplayWindow
@@ -26,7 +26,7 @@ class SelectNotesWindow(tk.Frame):
     def _configure_lb(self):
         """ Configure the notes list box """
         self.notes_lb.config(bg=LIGHT_GRAPEFRUIT,
-                             font=FONT_TUPLE,
+                             font=FONT_TUPLE_TITLE,
                              fg=BROWN,
                              width=850, height=OCTAVE,
                              highlightcolor=LIGHT_GRAPEFRUIT_3,
@@ -43,7 +43,7 @@ class SelectNotesWindow(tk.Frame):
         """ Configure the button """
         self.scales_button.config(text='Get Scales',
                                   bg=LIGHT_GRAPEFRUIT_2,
-                                  font=FONT_TUPLE,
+                                  font=FONT_TUPLE_TITLE,
                                   fg=BROWN,
                                   command=self.display_scales)
         self.scales_button.pack(padx=50, ipady=7, ipadx=200, pady=20)
@@ -58,5 +58,5 @@ class SelectNotesWindow(tk.Frame):
 
 if __name__ == "__main__":
     root = tk.Tk()
-    SelectNotesWindow(root).pack(side="top", fill="both", expand=True)
+    SelectNotesWindow(root).pack()
     root.mainloop()
