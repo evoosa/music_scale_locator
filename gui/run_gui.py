@@ -1,8 +1,6 @@
-import sys
 import tkinter as tk
 
-sys.path.append('gui')
-from select_notes_window import SelectNotesWindow
+from .select_notes_window import SelectNotesWindow
 
 
 def run_gui():

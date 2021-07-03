@@ -1,7 +1,7 @@
 import os
 
-from config import SCALES_TO_INTERVALS, NOTES, OCTAVE
-from utils import pickle_data_if_missing, load_pickle_data
+from playGround.MusicScaleLocator.utils.config import SCALES_TO_INTERVALS, NOTES, OCTAVE
+from .utils import pickle_data_if_missing, load_pickle_data
 
 SCALES_DB_FILE = 'scales_db.pickle'
 scales_db = {}

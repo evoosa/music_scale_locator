@@ -1,11 +1,11 @@
 import sys
 import tkinter as tk
 
-sys.path.append('..')
-from config import NOTES, OCTAVE, LIGHT_GRAPEFRUIT, MIDTONE_GRAPEFRUIT, DARK_GRAPEFRUIT, FONT_TUPLE_TITLE, BROWN
-from utils import get_random_unicode_music_char
-from create_scales_db import get_scales_for_notes_from_db
-from scales_display_window import ScalesDisplayWindow
+sys.path.append('../utils')
+from utils.config import NOTES, OCTAVE, LIGHT_GRAPEFRUIT, MIDTONE_GRAPEFRUIT, DARK_GRAPEFRUIT, FONT_TUPLE_TITLE, BROWN
+from utils.utils import get_random_unicode_music_char
+from utils.create_scales_db import get_scales_for_notes_from_db
+from .scales_display_window import ScalesDisplayWindow
 
 
 class SelectNotesWindow(tk.Frame):

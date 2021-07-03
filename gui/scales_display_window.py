@@ -2,8 +2,8 @@ import sys
 import tkinter as tk
 
 sys.path.append('..')
-from utils import get_scale_notes_names
-from config import NOTES, LIGHT_GRAPEFRUIT, MIDTONE_GRAPEFRUIT, BROWN, FONT_TUPLE_TEXT
+from utils.utils import get_scale_notes_names
+from playGround.MusicScaleLocator.utils.config import NOTES, LIGHT_GRAPEFRUIT, MIDTONE_GRAPEFRUIT, BROWN, FONT_TUPLE_TEXT
 
 
 class ScalesDisplayWindow:

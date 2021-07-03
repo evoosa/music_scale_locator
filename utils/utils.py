@@ -2,7 +2,7 @@ import os
 import pickle
 import random
 
-from config import NOTES
+from .config import NOTES
 
 
 def pickle_data_if_missing(data, pickle_file_path: str):
