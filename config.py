@@ -19,7 +19,16 @@ NOTES = [
 SCALES_TO_INTERVALS = [
     ('Major', [2, 2, 1, 2, 2, 2]),
     ('Natural Minor', [2, 1, 2, 2, 1, 2]),
-    ('Harmonic Minor', [2, 1, 2, 2, 1, 3])
+    ('Harmonic Minor', [2, 1, 2, 2, 1, 3]),
+    ('Ionian', [2, 2, 1, 2, 2, 2]),
+    ('Dorian', [2, 1, 2, 2, 2, 1]),
+    ('Phyrgian', [1, 2, 2, 2, 1, 2]),
+    ('Lydian', [2, 2, 2, 1, 2, 2]),
+    ('MixoLydian', [2, 2, 1, 2, 2, 1]),
+    ('Aeolian', [2, 1, 2, 2, 1, 2]),
+    ('Locrian', [1, 2, 2, 1, 2, 2]),
+    ('Pentatonic Major', [2, 2, 3, 2, 3]),
+    ('Pentatonic Minor', [3, 2, 2, 3, 2])
 ]
 
 # GUI

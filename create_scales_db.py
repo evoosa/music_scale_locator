@@ -75,6 +75,7 @@ def get_scales_for_notes_from_db(notes: list) -> list:
     key = repr(notes)
     try:
         scales = scales_db[key]
+        print(f'total of {len(scales)} for notes: {notes}')
     except Exception as e:
         print(f'ERROR: {e}')
         return []
