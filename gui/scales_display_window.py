@@ -3,11 +3,11 @@ import tkinter as tk
 
 sys.path.append('..')
 from utils import get_scale_notes_names
-from config import NOTES, LIGHT_GRAPEFRUIT, LIGHT_GRAPEFRUIT_2, BROWN, FONT_TUPLE_TEXT
+from config import NOTES, LIGHT_GRAPEFRUIT, MIDTONE_GRAPEFRUIT, BROWN, FONT_TUPLE_TEXT
 
 
-class ScalesDisplayWindow():
-    def __init__(self, notes: list, scales: dict, *args, **kwargs):
+class ScalesDisplayWindow:
+    def __init__(self, notes: list, scales: dict):
         self.parent = tk.Toplevel()
         self.notes = notes
         self.scales = scales
@@ -51,10 +51,10 @@ class ScalesDisplayWindow():
         self.canvas.grid_columnconfigure(1, weight=1)
 
     @staticmethod
-    def _configure_label(label, text, row, column):
+    def _configure_label(label: tk.Label, text: str, row: int, column: int):
         label.config(text=text,
                      borderwidth=5,
-                     bg=LIGHT_GRAPEFRUIT if row % 2 == 0 else LIGHT_GRAPEFRUIT_2,
+                     bg=LIGHT_GRAPEFRUIT if row % 2 == 0 else MIDTONE_GRAPEFRUIT,
                      fg=BROWN,
                      font=FONT_TUPLE_TEXT,
                      )
