@@ -6,15 +6,15 @@ from utils import get_scale_notes_names
 from config import NOTES, LIGHT_GRAPEFRUIT, LIGHT_GRAPEFRUIT_2, LIGHT_GRAPEFRUIT_3
 
 
-class ScalesDisplayWindow(tk.Toplevel):
-    def __init__(self, main_window, notes: list, scales: dict, *args, **kwargs):
-        tk.Toplevel.__init__(self, main_window, *args, **kwargs)
+class ScalesDisplayWindow():
+    def __init__(self, notes: list, scales: dict, *args, **kwargs):
+        self.parent = tk.Toplevel()
         self.notes = notes
         self.scales = scales
         self._configure_window()
 
-        self.canvas = tk.Canvas(self)
-        self.scroll_y = tk.Scrollbar(self, orient="vertical", command=self.canvas.yview)
+        self.canvas = tk.Canvas(self.parent)
+        self.scroll_y = tk.Scrollbar(self.parent, orient="vertical", command=self.canvas.yview)
         self.frame = tk.Frame(self.canvas)
 
         self.display_scales_table()
@@ -31,9 +31,9 @@ class ScalesDisplayWindow(tk.Toplevel):
         self.scroll_y.pack(fill='y', side='right')
 
     def _configure_window(self):
-        self.geometry('800x500')
-        self.title(f'Scales For Notes: {"  ".join([NOTES[note] for note in self.notes])}')
-        self.configure(bg=LIGHT_GRAPEFRUIT_3)
+        self.parent.geometry('800x500')
+        self.parent.title(f'Scales For Notes: {"  ".join([NOTES[note] for note in self.notes])}')
+        self.parent.configure(bg=LIGHT_GRAPEFRUIT_3)
 
     def display_scales_table(self):
         keys = list(self.scales.keys())
@@ -45,9 +45,8 @@ class ScalesDisplayWindow(tk.Toplevel):
             self._configure_label(name_label, scale_name, i, 0)
             notes_label = tk.Label(self.frame)
             self._configure_label(notes_label, scale_notes_formatted, i, 1)
-
-        self.grid_columnconfigure(0, weight=1)
-        self.grid_columnconfigure(1, weight=1)
+        self.canvas.grid_columnconfigure(0, weight=1)
+        self.canvas.grid_columnconfigure(1, weight=1)
 
     @staticmethod
     def _configure_label(label, text, row, column):

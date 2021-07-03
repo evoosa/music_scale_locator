@@ -53,7 +53,7 @@ class SelectNotesWindow(tk.Frame):
         notes = self.notes_lb.curselection()
         scales = get_scales_for_notes_from_db(notes)
         print(scales)
-        ScalesDisplayWindow(self, notes, scales)
+        ScalesDisplayWindow(notes, scales)
 
 
 if __name__ == "__main__":
