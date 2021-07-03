@@ -70,8 +70,17 @@ def create_and_load_db():
 def get_scales_for_notes_from_db(notes: list):
     """ Get the scales for the given notes from the DB """
     scales_db = create_and_load_db()
+    notes = list(set(notes))
     notes.sort()
     key = repr(notes)
+    try:
+        scales = scales_db[key]
+    except Exception as e:
+        print (f'ERROR: {e}')
+        return 'Error Sorry :<'
+    return scales
+
 
 if __name__ == '__main__':
-    create_and_load_db()
+    test_notes = [1, 4, 7, 3, 3]
+    get_scales_for_notes_from_db(test_notes)
