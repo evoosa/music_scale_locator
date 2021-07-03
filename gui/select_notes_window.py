@@ -45,14 +45,15 @@ class SelectNotesWindow(tk.Frame):
                                   bg=LIGHT_GRAPEFRUIT_2,
                                   font=FONT_TUPLE,
                                   fg=BROWN,
-                                  command=self.button_click)
+                                  command=self.display_scales)
         self.scales_button.pack(padx=50, ipady=7, ipadx=200, pady=20)
 
-    def button_click(self):
+    def display_scales(self):
+        """ Display the Scales for the chosen notes """
         notes = self.notes_lb.curselection()
         scales = get_scales_for_notes_from_db(notes)
         print(scales)
-        ScalesDisplayWindow(self)
+        ScalesDisplayWindow(self, notes, scales)
 
 
 if __name__ == "__main__":
