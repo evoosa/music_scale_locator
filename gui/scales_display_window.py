@@ -3,7 +3,7 @@ import tkinter as tk
 
 sys.path.append('..')
 from utils import get_scale_notes_names
-from config import NOTES, LIGHT_GRAPEFRUIT, LIGHT_GRAPEFRUIT_2, LIGHT_GRAPEFRUIT_3, BROWN, FONT_TUPLE_TEXT
+from config import NOTES, LIGHT_GRAPEFRUIT, LIGHT_GRAPEFRUIT_2, BROWN, FONT_TUPLE_TEXT
 
 
 class ScalesDisplayWindow():
